@@ -49,7 +49,7 @@ for job in listjob:
         companyprofile = driver.find_element(By.XPATH,'//*[@id="main-content"]/section[1]/div/section[2]/div/div[1]/div/h4/div[1]/span[1]/a').get_attribute('href') #Fetch Company profile link
         driver.get(companyprofile)
         element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,'//*[@id="contextual-sign-in"]/div/section/button'))) #Wait for modal box to popup
-        if EC.presence_of_element_located((By.XPATH,'//*[@id="contextual-sign-in"]/div/section/button')):
+        if driver.find_element(By.XPATH,'//*[@id="contextual-sign-in"]/div/section/button'):
             element.click() #Click to close modal box
         time.sleep(3)
         companydescription.append(driver.find_element(By.XPATH,'//*[@id="main-content"]/section[1]/div/section[1]/div/p').text) #Fetch Description of the company
